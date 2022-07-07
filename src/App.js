@@ -8,7 +8,7 @@ function App() {
 }
 const axios = require('axios');
 
-axios.get('https://cors-anywhere.herokuapp.com/superheroapi.com/api/5101234486641683/1').then(resp => {
+axios.get('https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/1').then(resp => {
 
     console.log(resp.data);
 });
