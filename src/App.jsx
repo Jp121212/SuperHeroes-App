@@ -2,6 +2,7 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
 import Data from "./Data";
+import { border, color } from '@mui/system';
 
 var id = Math.floor(Math.random()*733)
 
@@ -13,13 +14,19 @@ if(error) console.log(error);
 
 console.log(data)
 return(
-  <div>
-    <h4>Super Hero Name: {data?.name} </h4>
+  <div style={{margin: "20px"}}>
+    <h1>{data?.name} </h1>
+    <h2>Alignment: {data?.biography.alignment}</h2>
     <img
                 src={data?.image.url}
                 style={{ width: "200px", height: "250px" }}
               /><br></br>
-     
+    <h5>Occupation: {data?.work.occupation}</h5>
+    <h5>Intelligence: {data?.powerstats.intelligence}</h5>
+    <h5>Strength: {data?.powerstats.strength}</h5>
+    <h5>Speed: {data?.powerstats.speed}</h5>
+    <h5>Durability: {data?.powerstats.durability}</h5>
+    <h5>Power: {data?.powerstats.power}</h5>
     <button onClick={randompers} >Refrescar </button><br></br>
     <button onClick={() => window.location.reload()}>Random</button>
     
