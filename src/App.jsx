@@ -65,7 +65,7 @@ return(
           <tr key={pers.name}>
               <td>
               <span>🦸‍♂️</span>{pers.name}<Button onClick={() => deleteObj(pers.id)}
-              startIcon={<Avatar src={'https://cdn-icons.flaticon.com/png/512/3976/premium/3976961.png?token=exp=1657356051~hmac=7db6e9405515eacd18d44f37189fe8bf'}/>}></Button>
+              startIcon={<Avatar src={'https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_262_icon-icons.com_61518.png'}/>}></Button>
               </td>
           </tr> 
           ))
