@@ -36,6 +36,7 @@ return(
     
     <button onClick={() => window.location.reload()}>Random</button>
     <button onClick={add}> {heartblack}</button>   
+    <button onClick={randompers}> refresh </button>
     
   <div>
    
