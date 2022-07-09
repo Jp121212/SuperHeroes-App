@@ -3,13 +3,10 @@ import './App.css';
 import React, { useEffect, useState } from "react";
 import Data from "./Data";
 import { BrowserRouter as Router } from "react-router-dom";
-import Headers from "./header"
 import { Button } from '@mui/material';
 
-
-var id = Math.floor(Math.random()*733)
 var persjes = JSON.parse(localStorage.getItem('data') || "[]");
-
+var id = Math.floor(Math.random()*733)
 function App(){
 const {data, loading, error,randompers} = Data(`https://pokeapi.co/api/v2/pokemon/${id}`);
 const heartblack ="🖤";
@@ -19,23 +16,17 @@ if (loading) return <h3>Cargando...</h3>;
 
 if(error) console.log(error);
 
-
-function add (){
-   
-    localStorage.setItem('data',JSON.stringify(persjes));
-    var pers={
-        id: data.id,
-        name: data.name
-    }
-    persjes.push(pers);
-    console.log(persjes);
+const add = ()=> {
+    
+      
+  var pers={
+      id: data.id,
+      name: data.name
+  }
+  persjes.push(pers);
+  localStorage.setItem('data',JSON.stringify(persjes));
+  console.log(persjes);
 }
-
-
-  
-function delete11(){  
-}
-
 console.log(data)
 
 return(
@@ -59,7 +50,7 @@ return(
           persjes.map(pers =>(
           <tr key={pers.name}>
               <td>
-              <span>🦸‍♂️</span>{pers.name}<Button onClick={delete11}>eliminar</Button>
+              <span>🦸‍♂️</span>{pers.name}<Button>eliminar</Button>
               </td>
           </tr> 
           ))

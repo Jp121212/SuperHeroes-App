@@ -4,7 +4,6 @@ import axios from 'axios';
 import  { useEffect, useState } from 'react';
 import App from './App';
 
-
 function Data(url) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false); 
@@ -24,18 +23,6 @@ function Data(url) {
       setLoading(false);
     });
   },[url]);
-  
-   const add = ()=> {
-      var persjes = JSON.parse(localStorage.getItem('data') || "[]");
-      
-      var pers={
-          id: data.id,
-          name: data.name
-      }
-      persjes.push(pers);
-      localStorage.setItem('data',JSON.stringify(persjes));
-      console.log(persjes);
-  }
   const randompers = () => {
     setLoading(true);
      axios
@@ -55,7 +42,7 @@ function Data(url) {
   
   }
 
-  return{data,loading,error,randompers,add};
+  return{data,loading,error,randompers};
 
 }
 
