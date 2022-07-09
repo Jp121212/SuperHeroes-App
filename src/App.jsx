@@ -12,7 +12,7 @@ function App(){
 const {data, loading, error,randompers} = Data(`https://pokeapi.co/api/v2/pokemon/${id}`);
 const heartblack ="🖤";
 const [saveData,setSaveData] = useState(false);
-const [saveData2,setSaveData2] = useState(true);
+const [saveData2,setSaveData2] = useState(false);
 
   
 if (loading) return <h3>Cargando...</h3>;
@@ -31,11 +31,11 @@ const add = ()=> {
 }
  
 
-const deleteObj = (id)=>{
+function deleteObj (id){
   
-  const filteredPers = persjes.filter(pers => pers.id !== id);
+  var filteredPers = persjes.filter(pers => pers.id !== id);
   localStorage.setItem('data',JSON.stringify(filteredPers));
-  setSaveData(false);
+  setSaveData2(true);
   window.location.reload();
   console.log(filteredPers);
   
