@@ -2,88 +2,115 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
 import Data from "./Data";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Button,Avatar } from '@mui/material';
-import { width } from '@mui/system';
+import Header from './Header';
+import Listas from './lista';
 
-var persjes = JSON.parse(localStorage.getItem('data') || "[]");
-var id = Math.floor(Math.random()*733)
-function App(){
-const {data, loading, error,randompers} = Data(`https://pokeapi.co/api/v2/pokemon/${id}`);
+const persjes = JSON.parse(localStorage.getItem('data') || "[]"); 
+const id = Math.floor(Math.random()*733);
+
+function App(){  
+const [stateId,setStateId] = useState(id);
+const {data, loading, error} = Data(`https://pokeapi.co/api/v2/pokemon/${id}`);
+const [datas, setData] = useState(data);
 const heartblack ="🖤";
-const [saveData,setSaveData] = useState(false);
-const [saveData2,setSaveData2] = useState(false);
+const [saveData,setSaveData] = useState([]);
+const [eliminar,setEliminar] = useState([]);
+
+useEffect(()=>{
+
+},[data]);
+
+useEffect(()=>{
+  const id = 1
+  setStateId(id);
+},[id]);
+ 
+
+ 
+  
+ 
+
+  
+
 
   
 if (loading) return <h3>Cargando...</h3>;
 
 if(error) console.log(error);
 
+
+
+  
 const add = ()=> {
   var pers={
       id: data.id,
       name: data.name
   }
-  persjes.push(pers);
-  localStorage.setItem('data',JSON.stringify(persjes));
-  setSaveData(true);
-  console.log(persjes);
+  if(data.id === data.id){
+   alert("No se puede agregar repetidos")  
+  }else{
+    persjes.push(pers);
+    localStorage.setItem('data',JSON.stringify(persjes));
+    setSaveData(persjes);
+  }
+  console.log(persjes);  
 }
- 
 
-function deleteObj (id){
+
+
+const deleteObj =(id)=>{
   
-  var filteredPers = persjes.filter(pers => pers.id !== id);
+  const filteredPers = persjes.filter( pers => pers.id !== id);
+  console.log(filteredPers,'eliminado');
   localStorage.setItem('data',JSON.stringify(filteredPers));
-  setSaveData2(true);
-  window.location.reload();
-  console.log(filteredPers);
+  setSaveData(persjes);
   
 }
+
+
 console.log(data)
 
 return(
   
-  <div style={{margin: "20px"}}>
-    <h1>{data?.name} </h1>
-    
-    <button onClick={() => window.location.reload()}>Random</button>
-    <button onClick={add}> {heartblack}</button>   
-   
-    
-  <div>
-   
-    <table>
-      <thead>
-        <tr>
-          <th>My favorites Heroes</th>
-        </tr>
-      </thead>
-      <tbody>
-         {
-          persjes.map(pers =>(
-          <tr key={pers.name}>
-              <td>
-              <span>🦸‍♂️</span>{pers.name}<Button onClick={() => deleteObj(pers.id)}
-              startIcon={<Avatar src={'https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_262_icon-icons.com_61518.png'}/>}></Button>
-              </td>
-          </tr> 
-          ))
-          }
-      </tbody>
-    </table>
+  <div className=".mainDiv">
+    <Header/>
+    <div className='Cont1'>
+      <div className='Cont2'>
+      <h3 className='h2'>Mis Favoritos</h3>
+      <div> 
+    {
+      persjes.map((u)=>{
+        return <Listas  pers={u}/>
+      })
+    }
+  </div>
+      </div>
+      <div className='Cont3'>
+        <h1>{data?.name} </h1>
+        <img className='img'src={data?.sprites.front_default} />
+      </div>
+          
+          <div className='Cont4'>
+          <div className='Borde'>
+          <button onClick={setData} >Random</button>
+          <button onClick={add}> {heartblack}</button> 
+          
+        </div>
+      </div>
     </div>
+
+  </div>
+)
+}
    
     
-  </div> 
-
  
   
   
-)
 
 
-}
+
+
   
 
 
