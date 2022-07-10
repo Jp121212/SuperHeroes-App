@@ -39,22 +39,19 @@ if (loading) return <h3>Cargando...</h3>;
 if(error) console.log(error);
 
 
-
+var validator = false;
   
 const add = ()=> {
   var pers={
       id: data.id,
       name: data.name
   }
-  if(data.id === data.id){
-   alert("No se puede agregar repetidos")  
-  }else{
-    persjes.push(pers);
-    localStorage.setItem('data',JSON.stringify(persjes));
-    setSaveData(persjes);
-  }
+  localStorage.setItem('data',JSON.stringify(persjes)); 
+  persjes.push(pers);
+  setSaveData(persjes)
   console.log(persjes);  
 }
+
 
 
 
@@ -79,8 +76,8 @@ return(
       <h3 className='h2'>Mis Favoritos</h3>
       <div> 
     {
-      persjes.map((u)=>{
-        return <Listas  pers={u}/>
+      persjes.map((u,i)=>{
+        return <Listas  key={i} pers={u}/>
       })
     }
   </div>

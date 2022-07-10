@@ -12,9 +12,8 @@ const Header = () => {
     <Box className='header'>
       <AppBar  position="static">
         <Toolbar className='header' >
-          < Typography>
-            <div className='header'>Mi Super Hero App</div>
-          </Typography>
+            <p className='header'>Mi Super Hero App</p>
+          
         </Toolbar>
       </AppBar>
     </Box>
