@@ -34,11 +34,11 @@ function App(){
       }
     }
     if(!data){
-      fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`, setData);
+      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}` , setData);
     }
      if(newPers!=false){
       const id = Math.floor(Math.random()*733);
-      fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`, setData);
+      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}`, setData);
      }
     
      
@@ -75,8 +75,19 @@ function App(){
       id: data?.id,
       name: data?.name,
       height: data?.height,
-      sprites: data?.sprites.front_default,
-      spritesfront_default: data?.sprites.front_default,
+      sprites: data?.image.url,
+      intelligence: data?.powerstats.intelligence,
+      strength: data?.powerstats.strength,
+      speed: data?.powerstats.speed,
+      durability: data?.powerstats.durability,
+      power: data?.powerstats.power,
+      combat: data?.powerstats.combat,
+      alignment: data?.biography.alignment,
+      publisher: data?.biography.publisher,
+      work: data?.work.ocuppation,
+      biography: data?.biography["full-name"],
+      appearence: data?.appearance.gender,
+      race: data?.appearance.race
   }
   persjes.push(pers);
   localStorage.setItem('data',JSON.stringify(persjes)); 
@@ -118,7 +129,7 @@ return(
       <div className='Cont3' id="Cont3">
        
        <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
-        <img className="img"src={data?.sprites.front_default ? data?.sprites.front_default :  data?.sprites} />
+        <img className="img"src={data?.image.url ? data?.image.url :  data?.sprites} />
            
         
       </div>
@@ -128,8 +139,25 @@ return(
           <button className='btn1'onClick={random} >Random Hero</button>
         </div>
          <div className="info">
-         <h2  color='red'>{data?.name}</h2>
-         <p>Exp Base:{data?.base_experience}</p>
+         <h2  color='red'>{data?.name}</h2> 
+          <h4>Biography:</h4>
+          <p>Alignment: {data?.biography.alignment}</p>
+          <p>Publisher: {data?.biography.publisher}</p>
+          <p>Work: {data?.work.ocuppation}</p>
+          <p>Full Name: {data?.biography["full-name"]}</p>
+          
+         <h4>Power Stats:</h4>
+          <p>Intelligence: {data?.powerstats.intelligence}</p>
+          <p>Strength: {data?.powerstats.strength}</p>
+          <p>Speed: {data?.powerstats.speed}</p>
+          <p>Durability: {data?.powerstats.durability}</p>
+          <p>Power: {data?.powerstats.power}</p>
+          <p>Combat: {data?.powerstats.combat}</p>
+
+          <h4>Appearance:</h4>
+          <p>Gender: {data?.appearance.gender}</p>
+          <p>Race: {data?.appearance.race}</p>
+          
          </div>
          <div className='Borde'>
           <button className='btn1'onClick={add} >Add to Favorites</button>
