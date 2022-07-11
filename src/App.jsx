@@ -108,7 +108,7 @@ return(
     <Header/>
     <div className='Cont1'>
       <div className='Cont2'>
-      <h3 className='h2'>Mis Favorites</h3>
+      <h3 className='h2'>My Favorites</h3>
       <div>
         
       </div>
@@ -140,7 +140,7 @@ return(
         </div>
          <div className="info">
          <h2  >{data?.name}</h2>
-         <h2>Bibliografia</h2> 
+         <h2>Biography</h2> 
          <p>Publisher: { data?.publisher ? data?.publisher :data?.biography.publisher}</p>
          <p>Alignment: {data?.ali ? data?.ali : data?.biography.alignment}</p>
          
