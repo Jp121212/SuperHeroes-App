@@ -130,7 +130,7 @@ return(
        
        <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
        
-       <img className="img" />
+       <img className="img"src={data?.image.url ? data?.image.url : data?.foto } />
            
         
       </div>
@@ -141,7 +141,7 @@ return(
         </div>
          <div className="info">
          <h2  >{data?.name}</h2> 
-         <h2> {data?.biography.alignment}</h2>
+         <h2> {}</h2>
 
    
          
