@@ -1,67 +1,63 @@
 
 import './App.css';
 import React, { useEffect, useState } from "react";
-import Data from "./Data";
 import Header from './Header';
 import Listas from './lista';
+import Box from './lista';
+import axios from 'axios';
 
 const persjes = JSON.parse(localStorage.getItem('data') || "[]"); 
 const id = Math.floor(Math.random()*733);
 
 function App(){  
-const [stateId,setStateId] = useState(id);
-const {data, loading, error} = Data(`https://pokeapi.co/api/v2/pokemon/${id}`);
-const [datas, setData] = useState(data);
-const heartblack ="🖤";
-const [saveData,setSaveData] = useState([]);
-const [eliminar,setEliminar] = useState([]);
-
-useEffect(()=>{
-
-},[data]);
-
-useEffect(()=>{
-  const id = 1
-  setStateId(id);
-},[id]);
- 
-
- 
   
- 
-
+  const [data, setData] = useState(null);
+  const [newPers,setNewPers] = useState(false);
+  const heartblack ="🖤";
+  const [saveData,setSaveData] = useState([]);
   
-
-
   
-if (loading) return <h3>Cargando...</h3>;
-
-if(error) console.log(error);
-
-
-var validator = false;
+  useEffect(() => {
+    const fetchData = async (url, hook) => {
+      try{
+        const result = await axios.get(url);
+        if(newPers != false){{setNewPers(!newPers);}}
+        hook(result.data);
+      } catch (err){
+        console.error(err);
+      }
+    }
+    if(!data){
+      fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`, setData);
+    }
+     if(newPers!=false){
+      const id = Math.floor(Math.random()*733);
+      fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`, setData);
+     }
+  },[newPers]);
   
-const add = ()=> {
-  var pers={
+  const random = () => {
+    setNewPers(!newPers);
+  }
+  
+  const add = ()=> {
+  let pers={
       id: data.id,
       name: data.name
   }
-  localStorage.setItem('data',JSON.stringify(persjes)); 
   persjes.push(pers);
-  setSaveData(persjes)
+  localStorage.setItem('data',JSON.stringify(persjes)); 
+  setSaveData(persjes);
   console.log(persjes);  
 }
 
-
-
-
 const deleteObj =(id)=>{
-  
-  const filteredPers = persjes.filter( pers => pers.id !== id);
+  const filteredPers = persjes.filter((pers,ind)=>{
+    return ind !== id;
+  });
+  setSaveData(filteredPers);
   console.log(filteredPers,'eliminado');
   localStorage.setItem('data',JSON.stringify(filteredPers));
-  setSaveData(persjes);
-  
 }
 
 
@@ -82,20 +78,28 @@ return(
     }
   </div>
       </div>
+      
       <div className='Cont3'>
-        <h1>{data?.name} </h1>
-        <img className='img'src={data?.sprites.front_default} />
+       <h2 color='red'>{data?.name}</h2>
+        <img className="img"src={data?.sprites.front_default} alt='pokemon'/>
+        
       </div>
           
           <div className='Cont4'>
           <div className='Borde'>
-          <button onClick={setData} >Random</button>
-          <button onClick={add}> {heartblack}</button> 
-          
+          <button className='btn1'onClick={random} >Random Hero</button>
         </div>
+         <div className="info">
+         <h2 color='red'>{data?.name}</h2>
+         <p>Exp Base:{data?.base_experience}</p>
+         </div>
+         <div className='Borde'>
+          <button className='btn1'onClick={add} >Add to Favorites</button>
+         </div>
       </div>
-    </div>
-
+      
+    </div> 
+     
   </div>
 )
 }

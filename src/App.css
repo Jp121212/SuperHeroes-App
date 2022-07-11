@@ -1,5 +1,7 @@
 
-
+body{
+ background-color: #e5e7e8
+} 
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Miriam+Libre&display=swap');
 
 .App {
@@ -54,7 +56,13 @@
 }
 
 .Borde{
-  border: 1px solid red;
+  border: 1px solid rgb(0, 0, 255);
+  padding: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  
+  
+  
 }  
 
 .Cont1{
@@ -86,6 +94,9 @@
   height: 660px;
   margin-left: 40px;
   border: 1px solid red;
+  color: #f10000;
+  font-family: 'Miriam Libre', sans-serif;
+  font-weight: bold;
 }
 .Cont4{
   width: 50%;
@@ -94,7 +105,10 @@
   margin-left: 40px;
   border: 1px solid red;
 }
-
+.img2{
+  width: 150px;
+  height: 100px;
+}
 .img{
   width: 100%;
   height: 85%;
@@ -104,7 +118,7 @@
 .header{
   font-family: 'Bungee', cursive;
   font-size: 30px;
-  background-color: #61dafb;
+  background-color: #ffffff;
 }
 .Cont2::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -135,8 +149,72 @@
 .h2{
   font-size: 30px;
   margin-left: 10px;
+  color: #2844c0;
 }
 
 .listaitems{
   border: 1px solid #eaeaea;
+}
+
+.nueva{
+  border: 1px solid #eaeaea;
+  
+  
+}
+
+.h3{
+ color: #f10000;
+ width: 500;
+ font-size: 20px;
+ font-family: 'Miriam Libre', sans-serif;
+ font-weight: bold;
+}
+
+.h4{
+  color: #282c34;
+  width: 500;
+  font-size: 14px;
+  padding: 0px;
+  font-family: 'Miriam Libre', sans-serif;
+}
+
+.btn1 {
+  background: #104cf0;
+  border: 1px solid #1e00ff;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 16px;
+  outline: 0;
+  padding: 12px 14px;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: 'Miriam Libre', sans-serif;
+  
+}
+
+.random{
+  align-items: right;
+}
+
+.btn1:hover,
+.btn1:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #1c69db;
+}
+
+.btn1:active {
+  opacity: .5;
+}
+
+.info{
+  margin-top: 10px;
+  height: 80%;
+  border: 1px solid #cc6969;
 }
