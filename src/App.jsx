@@ -34,11 +34,11 @@ function App(){
       }
     }
     if(!data){
-      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/2128939953945151/${id}` , setData);
+      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}` , setData);
     }
      if(newPers!=false){
       const id = Math.floor(Math.random()*733);
-      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/2128939953945151/${id}`, setData);
+      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}`, setData);
      }
     
      
@@ -75,7 +75,7 @@ function App(){
       id: data?.id,
       name: data?.name,
       height: data?.height,
-      image: data?.image.url,
+      foto: data?.image.url,
       i: data?.powerstats.intelligence,
       strength: data?.powerstats.strength,
       speed: data?.powerstats.speed,
@@ -130,7 +130,7 @@ return(
        
        <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
        
-       <img className="img"src={data?.image.url ? data?.image.url : data?.image } />
+       <img className="img" />
            
         
       </div>
