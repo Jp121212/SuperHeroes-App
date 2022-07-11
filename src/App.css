@@ -168,8 +168,8 @@ body{
 }
 
 .btn1 {
-  background: #104cf0;
-  border: 1px solid #1e00ff;
+  background: #000000;
+  border: 1px solid #000000;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
@@ -195,7 +195,7 @@ body{
 .btn1:active {
   background-color: initial;
   background-position: 0 0;
-  color: #1c69db;
+  color: #000000;
 }
 
 .btn1:active {
