@@ -205,11 +205,13 @@ body{
 }
 
 .info{
-  margin-top: 10px;
+  
   height: 80%;
   border: #f0efef 1px solid;
   overflow-y: scroll;
-  white-space: nowrap; 
+  white-space: nowrap;
+  padding-left: 10px;
+
 }
 .info::-webkit-scrollbar {
   -webkit-appearance: none;

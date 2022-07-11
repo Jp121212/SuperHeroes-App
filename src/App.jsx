@@ -108,7 +108,7 @@ return(
     <Header/>
     <div className='Cont1'>
       <div className='Cont2'>
-      <h3 className='h2'>Mis Favoritos</h3>
+      <h3 className='h2'>Mis Favorites</h3>
       <div>
         
       </div>
@@ -127,10 +127,9 @@ return(
       </div>
       
       <div className='Cont3' id="Cont3">
+       <h1 className="nombre"id="h2" color='red'>{data?.name}</h1>
+       <img className="img"src={data?.foto ? data?.foto :data?.image.url } />
        
-       <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
-       
-       <img className="img"src={data?.image.url ? data?.image.url : data?.foto } />
            
         
       </div>
@@ -140,25 +139,23 @@ return(
           <button className='btn1'onClick={random} >Random Hero</button>
         </div>
          <div className="info">
-         <h2  >{data?.name}</h2> 
-         <h2> {}</h2>
-
-   
+         <h2  >{data?.name}</h2>
+         <h2>Bibliografia</h2> 
+         <p>Publisher: { data?.publisher ? data?.publisher :data?.biography.publisher}</p>
+         <p>Alignment: {data?.ali ? data?.ali : data?.biography.alignment}</p>
          
-       
-{/*           
-         <h4>Power Stats:</h4>
-          <p>Intelligence: {data?.powerstats.intelligence ? data?.powerstats.intelligence : data?.i }</p>
-          <p>Strength: {data?.powerstats.strength ? data?.powerstats.strength : data?.strength }</p>
-          <p>Speed: {data?.powerstats.speed ? data?.powerstats.speed : data?.speed}</p>
-          <p>Durability: {data?.powerstats.durability ? data?.powerstats.durability : data?.durability}</p>
-          <p>Power: {data?.powerstats.power ? data?.powerstats.power : data?.power}</p>
-          <p>Combat: {data?.powerstats.combat ?  data?.powerstats.combat : data?.combat}</p> */}
-{/* 
-          <h4>Appearance:</h4>
-          <p>Gender: {data?.appearance.gender ? data?.appearance.gender : data?.appearance}</p>
-          <p>Race: {data?.appearance.race ? data?.appearance.race : data?.race}</p> */}
-          
+         <h2>PowerStats:</h2>
+         <p>Intelligence: {data?.i ? data?.i : data?.powerstats.intelligence }</p>
+         <p>Strength: {data?.strength ? data?.strength : data?.powerstats.strength}</p>
+         <p>Speed: {data?.speed ? data?.speed : data?.powerstats.speed}</p>
+         <p>Durability: {data?.durability ? data?.durability : data?.powerstats.durability}</p>
+         <p>Power: {data?.power ? data?.power : data?.powerstats.power}</p>
+         <p>Combat: {data?.combat ? data?.combat : data?.powerstats.combat}</p>
+         <h2>Appareance</h2>         
+         <p>Raza: {data?.race ? data?.race : data?.appearance.race}</p>
+         <p>Genero: {data?.appearence ? data?.appearence : data?.work.occupation}</p>
+         
+        
          </div>
          <div className='Borde'>
           <button className='btn1'onClick={add} >Add to Favorites</button>

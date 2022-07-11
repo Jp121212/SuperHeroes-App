@@ -41,7 +41,7 @@ export default function BasicStack(props) {
        <Box sx={{ width: '100%' }}>
       <Stack onClick={()=>Item1(props.pers.id)}spacing={2} >
         <Item 
-        id="item" className="listaitems"><b>{props.pers.name}</b> <br></br>{props.pers.id} - {props.pers.ali} <br></br>{props.pers.publisher}  {props.pers.work}</Item>
+        id="item" className="listaitems"><b>{props.pers.name}</b> <br></br>{props.pers.id} • {props.pers.ali} • {props.pers.appearence} <br></br>{props.pers.publisher}  {props.pers.work} <br></br></Item>
       </Stack>
     </Box>       
     <div  id="Hola">
