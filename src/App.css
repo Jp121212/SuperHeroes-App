@@ -54,6 +54,7 @@ body{
 }
 
 .Cont3{
+  border-radius: 5px;
   width: 30%;
   height: 100%;
   margin-left: 40px;
@@ -145,10 +146,11 @@ body{
   
 }
 .nombre{
-  padding: 0;
+  padding-left: 10px;
   margin: 0;
   font-size: 40px;
   color: #ff0000;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .h3{
@@ -206,6 +208,33 @@ body{
   margin-top: 10px;
   height: 80%;
   border: #f0efef 1px solid;
+  overflow-y: scroll;
+  white-space: nowrap; 
+}
+.info::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.info::-webkit-scrollbar:vertical {
+  width:5px;
+}
+
+.info::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.info::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.info::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.info::-webkit-scrollbar-track {
+  border-radius: 10px;  
 }
 
 .footer{

@@ -12,15 +12,21 @@ const persjes = JSON.parse(localStorage.getItem('data') || "[]");
 const id = Math.floor(Math.random()*733);
 
 function App(){  
-  
+ 
   const [data, setData] = useState(null);
   const [newPers,setNewPers] = useState(false);
   const [pers, setPers] = useState(false);
   const heartblack ="🖤";
   const [saveData,setSaveData] = useState(true);
   const [eliminar,setEliminar] = useState([]);
+<<<<<<< HEAD
+  const [personajes,setPersonajes] = useState(persjes);
+  const [dodi,setDodi] = useState(false);
+  
+=======
  
     
+>>>>>>> master
   useEffect(() => {
     const fetchData = async (url, hook) => {
       try{
@@ -39,17 +45,43 @@ function App(){
       const id = Math.floor(Math.random()*733);
       fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}`, setData);
      }
+<<<<<<< HEAD
+    
+=======
      
       
+>>>>>>> master
      
   },[newPers,pers]);
 
 
    
+<<<<<<< HEAD
+  useEffect(() => {
+    console.log("ID recibida otro componente:",dodi.id);
+    setData(dodi);
+    
+  },[dodi]); 
+  
+=======
+>>>>>>> master
   
   const random = () => {
     setNewPers(!newPers);
   }
+ 
+  useEffect(() => {
+    
+  },[saveData]);
+ 
+  useEffect(() => {
+    setData(data);  
+  },[data]);
+
+ console.log(data)
+
+ 
+ 
   
   const lista = (id) => {
     const pers= persjes.find(pers => pers.id === id )
@@ -61,12 +93,28 @@ function App(){
  
   
   const add = ()=> {
-  let pers={
-      id: data.id,
-      name: data.name
+  const pers={
+      id: data?.id,
+      name: data?.name,
+      height: data?.height,
+      sprites: data?.sprites.front_default,
+      spritesfront_default: data?.sprites.front_default,
   }
   persjes.push(pers);
   localStorage.setItem('data',JSON.stringify(persjes)); 
+<<<<<<< HEAD
+  console.log(persjes);
+  setSaveData(!saveData);
+  
+ 
+}
+const remover = (id)=>{
+  const persjes1 = persjes.filter(pers => pers.id !== id );
+  localStorage.setItem('data',JSON.stringify(persjes1)); 
+}
+
+
+=======
   setSaveData(false);
   console.log(persjes);  
 }
@@ -86,6 +134,7 @@ const remover =(id)=>{
 
 }
 
+>>>>>>> master
 return(
   
   <div className=".mainDiv">
@@ -101,7 +150,11 @@ return(
       persjes.map((u,i)=>{ 
         return(
           <div key={i}>
+<<<<<<< HEAD
+            <BasicStack pers={u} setdodi={setDodi}/>
+=======
             <BasicStack pers={u}/>
+>>>>>>> master
             
           </div>
         )
@@ -110,10 +163,18 @@ return(
   </div>
       </div>
       
+<<<<<<< HEAD
+      <div className='Cont3' id="Cont3">
+       
+       <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
+        <img className="img"src={data?.sprites.front_default ? data?.sprites.front_default :  data?.sprites} />
+           
+=======
       <div className='Cont3'>
        
        <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
         <img className="img"src={data?.image.url} alt='Heroe'/>
+>>>>>>> master
         
       </div>
           
@@ -127,7 +188,12 @@ return(
          </div>
          <div className='Borde'>
           <button className='btn1'onClick={add} >Add to Favorites</button>
+<<<<<<< HEAD
+          <button className='btn2' onClick={()=>remover(dodi.id)}>Eliminar</button>
+   
+=======
           <button className='btn2' onClick={()=>remover(data?.id)}>Eliminar</button>
+>>>>>>> master
           
           
          </div>

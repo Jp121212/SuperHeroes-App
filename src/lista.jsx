@@ -23,12 +23,14 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function BasicStack(props) {
   const persjes = JSON.parse(localStorage.getItem('data') || "[]"); 
-  console.log("Lista Almacenda:",persjes);
- 
-             
+  console.log("Lista Almacenda:",persjes);  
+  const url = (props.pers.sprites.front_default); 
+  
+  console.log("Url",url);       
   const Item1 = (id) => {
     const pers1= persjes.find(pers => pers.id === id )
     console.log(pers1);
+    props.setdodi(pers1);
     
     return(
       <div id= "hola">Hola</div>
