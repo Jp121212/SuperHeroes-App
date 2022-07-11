@@ -22,11 +22,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 export default function BasicStack(props) {
-  const persjes = JSON.parse(localStorage.getItem('data') || "[]"); 
-  console.log("Lista Almacenda:",persjes);  
-  const url = (props.pers.sprites.front_default); 
-  
-  console.log("Url",url);       
+  const persjes = JSON.parse(localStorage.getItem('data')); 
+  console.log("Lista Almacenda:",persjes);        
   const Item1 = (id) => {
     const pers1= persjes.find(pers => pers.id === id )
     console.log(pers1);
@@ -44,7 +41,7 @@ export default function BasicStack(props) {
        <Box sx={{ width: '100%' }}>
       <Stack onClick={()=>Item1(props.pers.id)}spacing={2} >
         <Item 
-        id="item" className="listaitems"><b>{props.pers.name}</b> <br></br>{props.pers.id}</Item>
+        id="item" className="listaitems"><b>{props.pers.name}</b> <br></br>{props.pers.id} - {props.pers.ali} <br></br>{props.pers.publisher}  {props.pers.work}</Item>
       </Stack>
     </Box>       
     <div  id="Hola">

@@ -34,11 +34,11 @@ function App(){
       }
     }
     if(!data){
-      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}` , setData);
+      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/2128939953945151/${id}` , setData);
     }
      if(newPers!=false){
       const id = Math.floor(Math.random()*733);
-      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}`, setData);
+      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/2128939953945151/${id}`, setData);
      }
     
      
@@ -62,7 +62,7 @@ function App(){
   },[saveData]);
  
   useEffect(() => {
-    setData(data);  
+    setData(data); 
   },[data]);
 
  console.log(data)
@@ -75,20 +75,20 @@ function App(){
       id: data?.id,
       name: data?.name,
       height: data?.height,
-      sprites: data?.image.url,
-      intelligence: data?.powerstats.intelligence,
+      image: data?.image.url,
+      i: data?.powerstats.intelligence,
       strength: data?.powerstats.strength,
       speed: data?.powerstats.speed,
       durability: data?.powerstats.durability,
       power: data?.powerstats.power,
       combat: data?.powerstats.combat,
-      alignment: data?.biography.alignment,
+      ali: data?.biography.alignment,
       publisher: data?.biography.publisher,
-      work: data?.work.ocuppation,
-      biography: data?.biography["full-name"],
+      work: data?.work.occupation,
       appearence: data?.appearance.gender,
       race: data?.appearance.race
   }
+
   persjes.push(pers);
   localStorage.setItem('data',JSON.stringify(persjes)); 
   console.log(persjes);
@@ -129,7 +129,8 @@ return(
       <div className='Cont3' id="Cont3">
        
        <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
-        <img className="img"src={data?.image.url ? data?.image.url :  data?.sprites} />
+       
+       <img className="img"src={data?.image.url ? data?.image.url : data?.image } />
            
         
       </div>
@@ -139,24 +140,24 @@ return(
           <button className='btn1'onClick={random} >Random Hero</button>
         </div>
          <div className="info">
-         <h2  color='red'>{data?.name}</h2> 
-          <h4>Biography:</h4>
-          <p>Alignment: {data?.biography.alignment}</p>
-          <p>Publisher: {data?.biography.publisher}</p>
-          <p>Work: {data?.work.ocuppation}</p>
-          <p>Full Name: {data?.biography["full-name"]}</p>
-          
-         <h4>Power Stats:</h4>
-          <p>Intelligence: {data?.powerstats.intelligence}</p>
-          <p>Strength: {data?.powerstats.strength}</p>
-          <p>Speed: {data?.powerstats.speed}</p>
-          <p>Durability: {data?.powerstats.durability}</p>
-          <p>Power: {data?.powerstats.power}</p>
-          <p>Combat: {data?.powerstats.combat}</p>
+         <h2  >{data?.name}</h2> 
+         <h2> {data?.biography.alignment}</h2>
 
+   
+         
+       
+{/*           
+         <h4>Power Stats:</h4>
+          <p>Intelligence: {data?.powerstats.intelligence ? data?.powerstats.intelligence : data?.i }</p>
+          <p>Strength: {data?.powerstats.strength ? data?.powerstats.strength : data?.strength }</p>
+          <p>Speed: {data?.powerstats.speed ? data?.powerstats.speed : data?.speed}</p>
+          <p>Durability: {data?.powerstats.durability ? data?.powerstats.durability : data?.durability}</p>
+          <p>Power: {data?.powerstats.power ? data?.powerstats.power : data?.power}</p>
+          <p>Combat: {data?.powerstats.combat ?  data?.powerstats.combat : data?.combat}</p> */}
+{/* 
           <h4>Appearance:</h4>
-          <p>Gender: {data?.appearance.gender}</p>
-          <p>Race: {data?.appearance.race}</p>
+          <p>Gender: {data?.appearance.gender ? data?.appearance.gender : data?.appearance}</p>
+          <p>Race: {data?.appearance.race ? data?.appearance.race : data?.race}</p> */}
           
          </div>
          <div className='Borde'>
