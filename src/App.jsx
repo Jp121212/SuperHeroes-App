@@ -19,14 +19,9 @@ function App(){
   const heartblack ="🖤";
   const [saveData,setSaveData] = useState(true);
   const [eliminar,setEliminar] = useState([]);
-<<<<<<< HEAD
   const [personajes,setPersonajes] = useState(persjes);
   const [dodi,setDodi] = useState(false);
   
-=======
- 
-    
->>>>>>> master
   useEffect(() => {
     const fetchData = async (url, hook) => {
       try{
@@ -39,32 +34,24 @@ function App(){
       }
     }
     if(!data){
-      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}`, setData);
+      fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`, setData);
     }
      if(newPers!=false){
       const id = Math.floor(Math.random()*733);
-      fetchData(`https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/5101234486641683/${id}`, setData);
+      fetchData(`https://pokeapi.co/api/v2/pokemon/${id}`, setData);
      }
-<<<<<<< HEAD
     
-=======
-     
-      
->>>>>>> master
      
   },[newPers,pers]);
 
 
    
-<<<<<<< HEAD
   useEffect(() => {
     console.log("ID recibida otro componente:",dodi.id);
     setData(dodi);
     
   },[dodi]); 
   
-=======
->>>>>>> master
   
   const random = () => {
     setNewPers(!newPers);
@@ -83,15 +70,6 @@ function App(){
  
  
   
-  const lista = (id) => {
-    const pers= persjes.find(pers => pers.id === id )
-    console.log(pers);
-    setPers(!pers);
-  }
-
- console.log(data)
- 
-  
   const add = ()=> {
   const pers={
       id: data?.id,
@@ -102,7 +80,6 @@ function App(){
   }
   persjes.push(pers);
   localStorage.setItem('data',JSON.stringify(persjes)); 
-<<<<<<< HEAD
   console.log(persjes);
   setSaveData(!saveData);
   
@@ -114,27 +91,6 @@ const remover = (id)=>{
 }
 
 
-=======
-  setSaveData(false);
-  console.log(persjes);  
-}
-
-
-
-const remover =(id)=>{ 
-  setSaveData(true);
-  const pers = persjes.filter( pers => pers.id !== id);
-  console.log(pers,'eliminado'); 
-  localStorage.removeItem(pers);
-  localStorage.setItem('data',JSON.stringify(pers));
- 
-  alert('Personaje eliminado de la lista');
-  setSaveData(false);
-  ;
-
-}
-
->>>>>>> master
 return(
   
   <div className=".mainDiv">
@@ -150,11 +106,7 @@ return(
       persjes.map((u,i)=>{ 
         return(
           <div key={i}>
-<<<<<<< HEAD
             <BasicStack pers={u} setdodi={setDodi}/>
-=======
-            <BasicStack pers={u}/>
->>>>>>> master
             
           </div>
         )
@@ -163,18 +115,11 @@ return(
   </div>
       </div>
       
-<<<<<<< HEAD
       <div className='Cont3' id="Cont3">
        
        <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
         <img className="img"src={data?.sprites.front_default ? data?.sprites.front_default :  data?.sprites} />
            
-=======
-      <div className='Cont3'>
-       
-       <h2 className="nombre"id="h2" color='red'>{data?.name}</h2>
-        <img className="img"src={data?.image.url} alt='Heroe'/>
->>>>>>> master
         
       </div>
           
@@ -188,12 +133,8 @@ return(
          </div>
          <div className='Borde'>
           <button className='btn1'onClick={add} >Add to Favorites</button>
-<<<<<<< HEAD
           <button className='btn2' onClick={()=>remover(dodi.id)}>Eliminar</button>
    
-=======
-          <button className='btn2' onClick={()=>remover(data?.id)}>Eliminar</button>
->>>>>>> master
           
           
          </div>
